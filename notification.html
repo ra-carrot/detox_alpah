@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Title of the document</title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase.js"></script>
+
+
+</head>
+
+<body>
+<input type="text" id="bigOne" />
+<script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+        apiKey: "AIzaSyA0Les_Nu-_P430nPtskgyYPyRI92VAgmM",
+        authDomain: "detox-firedb.firebaseapp.com",
+        databaseURL: "https://detox-firedb.firebaseio.com",
+        projectId: "detox-firedb",
+        storageBucket: "detox-firedb.appspot.com",
+        messagingSenderId: "216743546689",
+        appId: "1:216743546689:web:3680e08f5ed816e2585bc0",
+        measurementId: "G-PV3WF8XG5M"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    //firebase.analytics();
+
+    var bigOne = document.getElementById("bigOne");
+    var dbRef = firebase.database().ref().child('text');
+    dbRef.on('value', snap => bigOne.value = snap.val());
+</script>
+
+</body>
+
+</html>

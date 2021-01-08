@@ -1,0 +1,43 @@
+{
+  "name": "7detox web app",
+  "short_name": "7detox",
+  "description": "detox",
+  "icons": [
+    { "src": "../img/logo_7detox.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+    ,
+    { "src": "../img/ic_7detox128128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+    ,
+    { "src": "../img/ic_7detox144144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+    ,
+    { "src": "../img/ic_7detox152152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    }
+    ,
+    { "src": "../img/ic_7detox256256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+    ,
+    { "src": "../img/ic_7detox512512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#7DB262",
+  "background_color": "#ffffff",
+  "gcm_sender_id": "216743546689"
+}
+
