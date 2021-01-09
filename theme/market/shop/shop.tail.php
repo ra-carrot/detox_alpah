@@ -16,7 +16,6 @@ add_javascript('<script src="'.G5_THEME_JS_URL.'/Ublue-jQueryTabs-1.2.js"></scri
 </div>
     </div>
     <!-- } 콘텐츠 끝 -->
-
 <!-- 하단 시작 { -->
 </div>
 
@@ -150,6 +149,14 @@ $(function() {
         $(".main_tree_menu").toggle();
     });
 });
+
+$(function() {
+    $(".main_tree_menu").hide();
+    $(".exit_btn").on("click", function() {
+        $(".main_tree_menu").toggle();
+    });
+});
+
 
 $(function (){
 	$(".cart_op_btn").on("click", function(){

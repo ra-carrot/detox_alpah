@@ -185,8 +185,8 @@ add_stylesheet('<link rel="apple-touch-icon" sizes="180x180" href="'.G5_IMG_URL.
         font-size: 20px;
         padding-right: 20px;
         padding-top: 10px;
+        cursor: pointer;
     }
-
     .inline_block{
         display: inline-block;
     }
@@ -222,7 +222,6 @@ add_stylesheet('<link rel="apple-touch-icon" sizes="180x180" href="'.G5_IMG_URL.
         overflow: hidden;
         line-height: 25px;
     }
-
 </style>
 <!-- 상단 시작 { -->
 <div id="hd">
