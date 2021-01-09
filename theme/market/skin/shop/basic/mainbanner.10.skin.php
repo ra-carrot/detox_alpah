@@ -48,7 +48,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++)
             $banner .= '<a href="'.G5_SHOP_URL.'/bannerhit.php?bn_id='.$row['bn_id'].'"'.$bn_new_win.'>';
         }
         //$item_html .= $banner.'<img src="'.G5_DATA_URL.'/banner/'.$row['bn_id'].'" width="'.$size[0].'" alt="'.get_text($row['bn_alt']).'"'.$bn_border.'>';
-        echo $banner.'<span style="background-image:url('.G5_DATA_URL.'/banner/'.$row['bn_id'].');" class="bn-img"></span>';
+        echo $banner.'<span style="background-image:url('.G5_DATA_URL.'/banner/'.$row['bn_id'].'); height: 700px; margin-top: -1px;" class="bn-img"></span>';
         if($banner)
             $item_html .= '</a>';
         $item_html .= '</li>';

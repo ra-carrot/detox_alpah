@@ -23,7 +23,7 @@ add_javascript('<script src="'.G5_THEME_JS_URL.'/Ublue-jQueryTabs-1.2.js"></scri
 <div id="quick" class="tab_wr">
 	
 	<!-- qk_innr start -->
-	<div class="qk_innr">
+	<div class="qk_innr" style="top: -23px;">
 	    <ul class="qk_btn">
 	    	<li>
 	    		<button type="button" id="top_btn"><i class="fa fa-arrow-up" aria-hidden="true"></i><span class="sound_only">상단으로</span></button>
@@ -134,6 +134,7 @@ add_javascript('<script src="'.G5_THEME_JS_URL.'/Ublue-jQueryTabs-1.2.js"></scri
 </div>
 
 <script>
+
 $(function() {
     $("#top_btn").on("click", function() {
         $("html, body").animate({scrollTop:0}, '500');
@@ -175,7 +176,10 @@ $(window).scroll(function() {
 });
 </script>
 
-<div id="ft">
+<div style="background: url('<?=G5_THEME_IMG_URL."/ft_bg.png?v=25"?>'); height: 150px">
+</div>
+
+<div id="ft" style="background-color: #f5fff0;">
     <div id="ft_wr">
         <ul class="ft_ul">
             <li><a href="<?php echo get_pretty_url('content', 'company'); ?>">회사소개</a></li>

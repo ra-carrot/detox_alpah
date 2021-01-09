@@ -11,82 +11,30 @@ define("_INDEX_", TRUE);
 include_once(G5_THEME_SHOP_PATH.'/shop.head.php');
 ?>
 
-<section id="idx_banner">
+<section id="idx_banner" style="max-height: 700px;">
 	<?php echo display_banner('메인', 'mainbanner.10.skin.php'); // 큰 배너 1 ?>
-<!--	<div id="idx_bn_link">-->
-<!--		<div id="bn_cnt_link">-->
-<!--			<ul>-->
-<!--				<li><a href=""><i class="fas fa-shopping-basket"></i><br>사용후기</a></li>-->
-<!--				<li><a href=""><i class="fas fa-gift"></i><br>이벤트</a></li>-->
-<!--				<li><a href=""><i class="fas fa-grin-alt"></i><br>커뮤니티</a></li>-->
-<!--				<li><a href=""><i class="fas fa-comment-dots"></i><br>문의</a></li>-->
-<!--			</ul>-->
-<!--		</div>-->
-<!--	</div>-->
 </section>
-
-
-
-<?php if($default['de_type4_list_use']) { ?>
-<!-- 인기상품 시작 { -->
-<section class="main">
-	<div class="sale_prd">
-        <h2><a href="<?php echo shop_type_url('4'); ?>">인기상품</a></h2>
-		<?php
-		$list = new item_list();
-		$list->set_type(4);
-		$list->set_view('it_img', true);
-		$list->set_view('it_id', false);
-		$list->set_view('it_name', true);
-		$list->set_view('it_basic', true);
-		$list->set_view('it_cust_price', false);
-		$list->set_view('it_price', true);
-		$list->set_view('it_icon', true);
-		$list->set_view('sns', false);
-		$list->set_view('star', true);
-		echo $list->run();
-		?>
-	</div>
-</section>
-<!-- } 인기상품 끝 -->
-<?php } ?>
 <section class="main2" style="background: url('<?=G5_THEME_IMG_URL."/main2_bg_img.png?v=25"?>'); background-size: 1920px 150px; height: 150px;" >
-
+<!--    // 큰 배너 아래 이미지-->
 </section>
 
-<?php if($default['de_type2_list_use']) { ?>
-<section class="main2">
-    <h2><a href="<?php echo shop_type_url('2'); ?>" class="main_tit">추천상품</a></h2>
-    <p>SIR 마켓에서 추천해드리는 상품입니다.</p>
-	<!-- 추천상품 시작 { -->
-	<div class="sct_wrap">
-	    <?php
-	    $list = new item_list();
-	    $list->set_type(2);
-	    $list->set_view('it_id', false);
-	    $list->set_view('it_name', true);
-	    $list->set_view('it_basic', true);
-	    $list->set_view('it_cust_price', true);
-	    $list->set_view('it_price', true);
-	    $list->set_view('it_icon', true);
-	    $list->set_view('sns', true);
-	    $list->set_view('star', true);
-	    echo $list->run();
-	    ?>
-    </div>
-    <!-- } 추천상품 끝 -->
-</section>
-<?php } ?>
+<h2 class="sound_only">최신글</h2>
 
-
-<div style="text-align: center; margin-top: 60px; margin-bottom: 60px;">
-    <img src="/detox/img/main_info.png">
+<div class="latest_wr" >
+    <!-- 사진 최신글2 { -->
+    <?php
+    // 이 함수가 바로 최신글을 추출하는 역할을 합니다.
+    // 사용방법 : latest(스킨, 게시판아이디, 출력라인, 글자수);
+    // 테마의 스킨을 사용하려면 theme/basic 과 같이 지정
+    echo latest('theme/pic_block', 'review', 4, 23);		// 최소설치시 자동생성되는 갤러리게시판
+    ?>
+    <!-- } 사진 최신글2 끝 -->
 </div>
 
-<section class="main4">
+<section class="main4" style="background-color: white">
 	<?php if($default['de_type1_list_use']) { ?>
 	<!-- 히트상품 시작 { -->
-	<h2><a href="<?php echo shop_type_url('4'); ?>" class="main_tit">히트상품</a></h2>
+	<h2><a href="<?php echo shop_type_url('4'); ?>" class="main_tit" style="color:#7DB262; padding-bottom: 60px;">제품소개</a></h2>
     <?php
     $list = new item_list();
     $list->set_type(1);
@@ -94,8 +42,8 @@ include_once(G5_THEME_SHOP_PATH.'/shop.head.php');
     $list->set_view('it_id', false);
     $list->set_view('it_name', true);
     $list->set_view('it_basic', true);
-    $list->set_view('it_cust_price', true);
-    $list->set_view('it_price', true);
+    $list->set_view('it_cust_price', false);
+    $list->set_view('it_price', false);
     $list->set_view('it_icon', false);
     $list->set_view('sns', false);
     echo $list->run();

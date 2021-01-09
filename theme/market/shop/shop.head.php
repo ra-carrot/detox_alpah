@@ -70,6 +70,43 @@ add_stylesheet('<link rel="apple-touch-icon" sizes="180x180" href="'.G5_IMG_URL.
     .gnb_shortcut > li > a{
         color: white;
     }
+
+    .menu-trigger,
+    .menu-trigger span {
+        display: inline-block;
+        transition: all .4s;
+        box-sizing: border-box;
+    }
+
+    .menu-trigger {
+        left: 0px;
+        position: absolute;
+        width: 30px;
+        height: 20px;
+        margin-top: 14px;
+    }
+
+    .menu-trigger span {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background-color: #fff;
+        border-radius: 4px;
+    }
+
+    .menu-trigger span:nth-of-type(1) {
+        top: 0;
+    }
+
+    .menu-trigger span:nth-of-type(2) {
+        top: 8px;
+    }
+
+    .menu-trigger span:nth-of-type(3) {
+        bottom: 0;
+    }
+
 </style>
 <!-- 상단 시작 { -->
 <div id="hd">
@@ -84,17 +121,6 @@ add_stylesheet('<link rel="apple-touch-icon" sizes="180x180" href="'.G5_IMG_URL.
     	<div id="hd_wr" style="text-align: center">
 	        <div id="logo" style="display: inline-block; float: initial">
                 <a href="<?php echo G5_SHOP_URL; ?>/"><img src="<?php echo G5_THEME_IMG_URL ?>/logo.png?v=5" alt="<?php echo $config['cf_title']; ?>"></a></div>
-<!--	        <fieldset id="hd_sch">-->
-<!--	            <legend>쇼핑몰 전체검색</legend>-->
-<!--	            <form name="frmsearch1" action="--><?php //echo G5_SHOP_URL; ?><!--/search.php" onsubmit="return search_submit(this);">-->
-<!--	            <label for="sch_stx" class="sound_only">검색어 필수</label>-->
-<!--	                <div class="sch_ipt">-->
-<!--	            		<label for="sch_str" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>-->
-<!--	            		<input type="text" name="q" class="sch_stx" value="--><?php //echo stripslashes(get_text(get_search_string($q))); ?><!--" id="sch_str" required placeholder="검색어를 입력해주세요">-->
-<!--	            		<button type="submit" id="sch_submit"><i class="fa fa-search" aria-hidden="true"></i><span class="sound_only">검색</span></button>-->
-<!--	            	</div>-->
-<!--	            </form>-->
-<!--	        </fieldset>-->
             <script>
             function search_submit(f) {
                 if (f.q.value.length < 2) {
@@ -106,44 +132,17 @@ add_stylesheet('<link rel="apple-touch-icon" sizes="180x180" href="'.G5_IMG_URL.
                 return true;
             }
             </script>
-<!--            <ul id="hd_qnb">-->
-<!--	        	<li>-->
-<!--	        		--><?php //if ($is_member) { ?>
-<!--	        		<button class="login_btn">나의정보</button>-->
-<!--	        		<a href="--><?php //echo G5_BBS_URL ?><!--/logout.php" class="logout_btn">로그아웃</a>-->
-<!--	        		--><?php //if ($is_admin) {  ?>
-<!--		            <a href="--><?php //echo G5_ADMIN_URL; ?><!--/shop_admin" class="admin_btn">관리자</a>-->
-<!--		            --><?php //}  ?>
-<!--	        		--><?php //} else { ?>
-<!--	        		<button class="login_btn">로그인</button>-->
-<!--	        		<a href="--><?php //echo G5_BBS_URL ?><!--/register.php" class="logout_btn join_btn">회원가입-->
-<!--	        			</a>-->
-<!--	        		--><?php //} ?>
-<!--	        		<div id="member_menu">-->
-<!--						<div class="member_div">-->
-<!--							--><?php //echo outlogin('theme/basic'); // 외부 로그인, 테마의 스킨을 사용하려면 스킨을 theme/basic 과 같이 지정 ?>
-<!--							--><?php //echo display_banner('왼쪽'); //쇼핑몰 배너 시작 ?>
-<!--						</div>-->
-<!--						<div class="bg"></div>-->
-<!--					</div>-->
-<!--					<script>-->
-<!--				    $(function(){-->
-<!--				        $(".login_btn").click(function(){-->
-<!--				            $("#member_menu").toggle();-->
-<!--				        });-->
-<!--				        $(".login_cls_btn").click(function(){-->
-<!--				            $("#member_menu").hide();-->
-<!--				        });-->
-<!--				    });-->
-<!--					</script>-->
-<!---->
-<!--	        	</li>-->
-<!--	        </ul>-->
         </div>
     </div>
     <div style="width: 100%; background-color: #7DB262">
     <nav id="gnb" class="font">
 <!--    	<button type="button" id="menu_open"><i class="fa fa-bars" aria-hidden="true"></i> 전체상품</button>-->
+        <a class="menu-trigger" href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+
     	<ul class="gnb_shortcut" style="float: right">
     		<li><a href="<?php echo G5_SHOP_URL; ?>/">7디톡스</a></li>
             <li><a href="#">참여하기</a></li>
