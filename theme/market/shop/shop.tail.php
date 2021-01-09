@@ -135,13 +135,22 @@ add_javascript('<script src="'.G5_THEME_JS_URL.'/Ublue-jQueryTabs-1.2.js"></scri
 
 <script>
 
+
+
 $(function() {
     $("#top_btn").on("click", function() {
         $("html, body").animate({scrollTop:0}, '500');
         return false;
     });
 });
-	
+
+$(function() {
+    $(".main_tree_menu").hide();
+    $(".menu-trigger").on("click", function() {
+        $(".main_tree_menu").toggle();
+    });
+});
+
 $(function (){
 	$(".cart_op_btn").on("click", function(){
 		$("#qk_cart").show();

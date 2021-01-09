@@ -107,6 +107,122 @@ add_stylesheet('<link rel="apple-touch-icon" sizes="180x180" href="'.G5_IMG_URL.
         bottom: 0;
     }
 
+    .main_tree_menu{
+        width: 360px;
+        height: 100%;
+        background-color: yellow;
+        z-index: 10000;
+        position: relative;
+        top: 50px;
+        display: inline-block;
+        left: -210px;
+    }
+
+    .login_container{
+        width: 100%;
+        height: 130px;
+        background-color: #7DB262;
+    }
+    .tree_exit_container{
+        width: 100%;
+        height: 30px;
+        background-color: #7DB262;
+    }
+
+    .menu_container{
+        /*height: 355px;*/
+        background-color: white;
+        opacity: 0.8;
+    }
+
+    .left_menu_container{
+        width: 50%;
+        /*background-color: yellow;*/
+        height: 100%;
+        display: inline-block;
+        float: left;
+    }
+    .right_menu_container{
+        width: 50%;
+        /*background-color: #0f75ac;*/
+        height: 100%;
+        display: inline-block;
+        float: right;
+    }
+
+    .left_menu_list{
+        padding-top: 15px;
+        text-align: left;
+        padding-left: 30px;
+        /*margin-left: 30px;*/
+        /*border-bottom: 1px solid #7DB262;*/
+
+        line-height: 31px;
+
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .detox_color{
+        color: #7DB262;
+    }
+
+    .menu_line{
+        background-color: #7DB262;
+        height: 2px;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    .login_text{
+        line-height: 110px;
+        color: white;
+        font-size: 17px;
+        font-weight: bold;
+    }
+    .exit_btn{
+        float: right;
+        color: white;
+        font-size: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+    }
+
+    .inline_block{
+        display: inline-block;
+    }
+
+    .user_info_container{
+        width: 100%;
+        position: relative;
+        top: 18px;
+        float: left;
+        padding-left: 20px;
+        padding-right: 20px
+    }
+    .box {
+        width: 64px;
+        height: 64px;
+        border-radius: 70%;
+        overflow: hidden;
+        display: inline-block;
+    }
+    .profile {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background-color: white;
+    }
+
+    .user_info_ul{
+        display: inline-block;
+        margin-left: 15px;
+        color: white;
+        font-size: 15px;
+        font-weight: bold;
+        overflow: hidden;
+        line-height: 25px;
+    }
+
 </style>
 <!-- 상단 시작 { -->
 <div id="hd">
@@ -142,6 +258,70 @@ add_stylesheet('<link rel="apple-touch-icon" sizes="180x180" href="'.G5_IMG_URL.
             <span></span>
             <span></span>
         </a>
+
+        <div class="main_tree_menu">
+            <div class="tree_exit_container">
+                <i class="fa fa-times exit_btn" aria-hidden="true"></i>
+            </div>
+            <div class="login_container">
+                <?php if ($is_member) {?>
+                    <div class="user_info_container">
+                        <div class="box" style="background: #BDBDBD;">
+                            <img class="profile">
+                        </div>
+                        <ul class="user_info_ul" style="text-align: left; width: 160px">
+                            <li><?=$member["mb_name"]?></li>
+                            <li><?=$member["mb_email"]?></li>
+                        </ul>
+                        <ul class="user_info_ul">
+                            <li><a href="<?php echo G5_BBS_URL; ?>/member_confirm.php?url=register_form.php" style="color: white">회원정보</a></li>
+                            <li><a href="<?php echo G5_BBS_URL ?>/logout.php" style="color: white">로그아웃</a></li>
+                        </ul>
+                    </div>
+                <?php } else { ?>
+                    <a href="<?php echo G5_BBS_URL ?>/login.php"><span class="login_text">로그인 해주세요.</span></a>
+                <?php } ?>
+            </div>
+            <div class="menu_container" style="height: 190px">
+                <div class="left_menu_container">
+                    <ul class="left_menu_list">
+                        <li class="detox_color">7디톡스</li>
+                        <li class="detox_color">게시판</li>
+                        <li>자유게시판</li>
+                        <li>후기</li>
+                        <li>노하우</li>
+                    </ul>
+                </div>
+                <div class="right_menu_container">
+                    <ul class="left_menu_list">
+                        <li class="detox_color">제품소개</li>
+                        <li class="detox_color">참여하기</li>
+                        <li>알람설정</li>
+                        <li>홈트레이닝</li>
+                        <li>해독일지</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="menu_container" style="height: 5px;">
+                <div class="menu_line" ></div>
+            </div>
+            <div class="menu_container" style="height: 155px">
+                <div class="left_menu_container">
+                    <ul class="left_menu_list">
+                        <li>회사소개</li>
+                        <li>이용약관</li>
+                        <li>청소년 보호정책</li>
+                    </ul>
+                </div>
+                <div class="right_menu_container">
+                    <ul class="left_menu_list">
+                        <li>고객센터</li>
+                        <li>개인정보 처리방침</li>
+                        <li>제휴문의</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
     	<ul class="gnb_shortcut" style="float: right">
     		<li><a href="<?php echo G5_SHOP_URL; ?>/">7디톡스</a></li>

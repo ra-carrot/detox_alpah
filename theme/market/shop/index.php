@@ -34,7 +34,7 @@ include_once(G5_THEME_SHOP_PATH.'/shop.head.php');
 <section class="main4" style="background-color: white">
 	<?php if($default['de_type1_list_use']) { ?>
 	<!-- 히트상품 시작 { -->
-	<h2><a href="<?php echo shop_type_url('4'); ?>" class="main_tit" style="color:#7DB262; padding-bottom: 60px;">제품소개</a></h2>
+	<h2><a href="<?php echo shop_type_url('1'); ?>" class="main_tit" style="color:#7DB262; padding-bottom: 60px;">제품소개</a></h2>
     <?php
     $list = new item_list();
     $list->set_type(1);

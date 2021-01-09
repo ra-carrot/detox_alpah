@@ -22,11 +22,14 @@ $thumb_height = 150;
         height: 100px;
         color: white;
         margin-bottom: -5px;
+        overflow: hidden;
     }
     .img_top_box_title{
         padding-left: 27px;
         padding-top: 27px;
         padding-right: 27px;
+        font-weight: bold;
+        white-space: nowrap
     }
     .img_top_box_notice{
         padding-top: 5px;
@@ -61,24 +64,7 @@ $thumb_height = 150;
             if ($list[$i]['icon_secret']) echo "<i class=\"fa fa-lock\" aria-hidden=\"true\"></i><span class=\"sound_only\">비밀글</span> ";
 
             echo "<a href=\"".$list[$i]['href']."\"> ";
-//            if ($list[$i]['is_notice'])
-//                echo "<strong>".$list[$i]['subject']."</strong>";
-//            else
-//                echo $list[$i]['subject'];
             echo "</a>";
-			
-//			if ($list[$i]['icon_new']) echo "<span class=\"new_icon\">N<span class=\"sound_only\">새글</span></span>";
-//            if ($list[$i]['icon_hot']) echo "<span class=\"hot_icon\">H<span class=\"sound_only\">인기글</span></span>";
-
-            // if ($list[$i]['link']['count']) { echo "[{$list[$i]['link']['count']}]"; }
-            // if ($list[$i]['file']['count']) { echo "<{$list[$i]['file']['count']}>"; }
-
-			// echo $list[$i]['icon_reply']." ";
-			// if ($list[$i]['icon_file']) echo " <i class=\"fa fa-download\" aria-hidden=\"true\"></i>" ;
-            // if ($list[$i]['icon_link']) echo " <i class=\"fa fa-link\" aria-hidden=\"true\"></i>" ;
-
-//            if ($list[$i]['comment_cnt'])  echo "
-//            <span class=\"lt_cmt\">".$list[$i]['wr_comment']."</span>";
 
             ?>
 
@@ -93,8 +79,8 @@ $thumb_height = 150;
     <?php }  ?>
     </ul>
     <div style="text-align: center; margin-top: 30px;">
-        <div style="height: 70px; width: 210px; display: inline-block; border: 1px solid #7DB262">
-            <a href="<?php echo get_pretty_url($bo_table); ?>"><h2 style="height: 70px; line-height: 70px; color: #7DB262">더보기</h2></a>
+        <div style="height: 50px; width: 210px; display: inline-block; border: 1px solid #7DB262; background-color: white">
+            <a href="<?php echo get_pretty_url($bo_table); ?>"><h2 style="height: 50px; line-height: 50px; color: #7DB262">더보기</h2></a>
         </div>
     </div>
 </div>
