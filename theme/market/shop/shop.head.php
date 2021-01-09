@@ -284,9 +284,9 @@ add_stylesheet('<link rel="apple-touch-icon" sizes="180x180" href="'.G5_IMG_URL.
             <div class="menu_container" style="height: 190px">
                 <div class="left_menu_container">
                     <ul class="left_menu_list">
-                        <li class="detox_color">7디톡스</li>
-                        <li class="detox_color">게시판</li>
-                        <li>자유게시판</li>
+                        <li class="detox_color"><a href="<?php echo G5_SHOP_URL; ?>/">7디톡스</a></li>
+                        <li class="detox_color"><a href="<?php echo get_pretty_url("free")?>">게시판</a></li>
+                        <li><a href="<?php echo get_pretty_url("free")?>">자유게시판</a></li>
                         <li>후기</li>
                         <li>노하우</li>
                     </ul>
@@ -307,15 +307,15 @@ add_stylesheet('<link rel="apple-touch-icon" sizes="180x180" href="'.G5_IMG_URL.
             <div class="menu_container" style="height: 155px">
                 <div class="left_menu_container">
                     <ul class="left_menu_list">
-                        <li>회사소개</li>
-                        <li>이용약관</li>
+                        <li><a href="<?php echo get_pretty_url('content', 'company'); ?>">회사소개</a></li>
+                        <li><a href="<?php echo get_pretty_url('content', 'provision'); ?>">이용약관</a></li>
                         <li>청소년 보호정책</li>
                     </ul>
                 </div>
                 <div class="right_menu_container">
                     <ul class="left_menu_list">
                         <li>고객센터</li>
-                        <li>개인정보 처리방침</li>
+                        <li><a href="<?php echo get_pretty_url('content', 'privacy'); ?>">개인정보처리방침</a></li>
                         <li>제휴문의</li>
                     </ul>
                 </div>
@@ -326,7 +326,7 @@ add_stylesheet('<link rel="apple-touch-icon" sizes="180x180" href="'.G5_IMG_URL.
     		<li><a href="<?php echo G5_SHOP_URL; ?>/">7디톡스</a></li>
             <li><a href="#">참여하기</a></li>
             <li><a href="#">제품소개</a></li>
-            <li><a href="#">게시판</a></li>
+            <li><a href="<?php echo get_pretty_url("free")?>">게시판</a></li>
 <!--            <li><a href="--><?php //echo shop_type_url(5); ?><!--">상품</a></li>-->
             <?php
             $i = 0;
