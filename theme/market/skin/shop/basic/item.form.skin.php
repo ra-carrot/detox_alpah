@@ -298,12 +298,12 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
         <div id="sit_ov_btn">
             <?php if ($is_orderable) { ?>
             <button type="submit" onclick="document.pressed=this.value;" value="바로구매" id="sit_btn_buy">바로구매</button>
-            <button type="submit" onclick="document.pressed=this.value;" value="장바구니" id="sit_btn_cart">장바구니</button>
+<!--            <button type="submit" onclick="document.pressed=this.value;" value="장바구니" id="sit_btn_cart">장바구니</button>-->
             <?php } ?>
             <?php if(!$is_orderable && $it['it_soldout'] && $it['it_stock_sms']) { ?>
             <a href="javascript:popup_stocksms('<?php echo $it['it_id']; ?>');" id="sit_btn_alm"><i class="fa fa-bell-o" aria-hidden="true"></i> 재입고알림</a>
         	<?php } ?>
-            <a href="javascript:item_wish(document.fitem, '<?php echo $it['it_id']; ?>');" id="sit_btn_wish">위시리스트</a>
+<!--            <a href="javascript:item_wish(document.fitem, '--><?php //echo $it['it_id']; ?><!--');" id="sit_btn_wish">위시리스트</a>-->
             <?php if ($naverpay_button_js) { ?>
             <div class="itemform-naverpay"><?php echo $naverpay_request_js.$naverpay_button_js; ?></div>
             <?php } ?>

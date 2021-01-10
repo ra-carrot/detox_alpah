@@ -52,14 +52,14 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
     ?>
 	<div id="sit_star_sns">
 		<div class="sns_area">
-	        <?php echo get_sns_share_link('facebook', $sns_url, $sns_title, G5_MSHOP_SKIN_URL.'/img/facebook.png'); ?>
-	        <?php echo get_sns_share_link('twitter', $sns_url, $sns_title, G5_MSHOP_SKIN_URL.'/img/twitter.png'); ?>
-	        <?php echo get_sns_share_link('googleplus', $sns_url, $sns_title, G5_MSHOP_SKIN_URL.'/img/gplus.png'); ?>
-	        <?php echo get_sns_share_link('kakaotalk', $sns_url, $sns_title, G5_MSHOP_SKIN_URL.'/img/sns_kakao.png'); ?>
+<!--	        --><?php //echo get_sns_share_link('facebook', $sns_url, $sns_title, G5_MSHOP_SKIN_URL.'/img/facebook.png'); ?>
+<!--	        --><?php //echo get_sns_share_link('twitter', $sns_url, $sns_title, G5_MSHOP_SKIN_URL.'/img/twitter.png'); ?>
+<!--	        --><?php //echo get_sns_share_link('googleplus', $sns_url, $sns_title, G5_MSHOP_SKIN_URL.'/img/gplus.png'); ?>
+<!--	        --><?php //echo get_sns_share_link('kakaotalk', $sns_url, $sns_title, G5_MSHOP_SKIN_URL.'/img/sns_kakao.png'); ?>
 	        <?php
 	        $href = G5_SHOP_URL.'/iteminfo.php?it_id='.$it_id;
 	        ?> 
-	        <a href="javascript:popup_item_recommend('<?php echo $it['it_id']; ?>');" id="sit_btn_rec"><i class="fa fa-envelope-o" aria-hidden="true"></i><span class="sound_only">추천하기</span></a>
+<!--	        <a href="javascript:popup_item_recommend('--><?php //echo $it['it_id']; ?><!--');" id="sit_btn_rec"><i class="fa fa-envelope-o" aria-hidden="true"></i><span class="sound_only">추천하기</span></a>-->
 	    </div>
 	    <div id="star_score">
 		<?php
@@ -188,6 +188,13 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
                     <th><?php echo $ct_send_cost_label; ?></th>
                     <td><?php echo $sc_method; ?></td>
                 </tr>
+                <tr>
+                    <th>추천인</th>
+                    <td>
+                        <input id="marketing_member" name="marketing_member" type="text">
+                    </td>
+                </tr>
+
                 <?php if($it['it_buy_min_qty']) { ?>
                 <tr>
                     <th>최소구매수량</th>
@@ -290,12 +297,12 @@ add_stylesheet('<link rel="stylesheet" href="'.G5_SHOP_CSS_URL.'/style.css">', 0
         <div id="sit_ov_btn">
             <?php if ($is_orderable) { ?>
             <input type="submit" onclick="document.pressed=this.value;" value="바로구매" id="sit_btn_buy">
-            <input type="submit" onclick="document.pressed=this.value;" value="장바구니" id="sit_btn_cart">
+<!--            <input type="submit" onclick="document.pressed=this.value;" value="장바구니" id="sit_btn_cart">-->
             <?php } ?>
             <?php if(!$is_orderable && $it['it_soldout'] && $it['it_stock_sms']) { ?>
             <a href="javascript:popup_stocksms('<?php echo $it['it_id']; ?>');" id="sit_btn_buy">재입고알림</a>
             <?php } ?>
-            <a href="javascript:item_wish(document.fitem, '<?php echo $it['it_id']; ?>');" id="sit_btn_wish">위시리스트</a>
+<!--            <a href="javascript:item_wish(document.fitem, '<?php echo $it['it_id']; ?>');" id="sit_btn_wish">위시리스트</a>-->
             <?php if ($naverpay_button_js) { ?>
             <div class="naverpay-item"><?php echo $naverpay_request_js.$naverpay_button_js; ?></div>
             <?php } ?>
