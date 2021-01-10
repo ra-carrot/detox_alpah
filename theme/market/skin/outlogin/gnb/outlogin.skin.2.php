@@ -16,12 +16,12 @@ add_stylesheet('<link rel="stylesheet" href="'.$outlogin_skin_url.'/style.css">'
     <span class="profile_img" style="height: 50px; margin-right: 10px">
         <?php echo get_member_profile_img($member['mb_id']); ?>
     </span>
-    <ul style="display: inline-block; color: white; font-weight: bold">
+    <ul style="display: inline-block; color: white; font-weight: bold; line-height: 20px">
         <li><?php echo $nick ?></li>
         <li><?php echo $member['mb_email'] ?></li>
     </ul>
 
-    <ul style="display: inline-block; color: white; font-weight: bold; margin-left: 10px">
+    <ul style="display: inline-block; color: white; font-weight: bold; margin-left: 10px; line-height: 20px">
         <li>회원정보</li>
         <li><a href="<?php echo G5_BBS_URL ?>/logout.php" style="color:white;">로그아웃</a></li>
     </ul>

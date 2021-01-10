@@ -63,6 +63,12 @@ if ($config['cf_analytics']) {
 ?>
 
 <script src="<?php echo G5_JS_URL; ?>/sns.js"></script>
+<script>
+    $(".main-tab").on("click",function(){
+        $(".main-tab").removeClass("active");
+        $(this).addClass("active");
+    });
+</script>
 
 <?php
 include_once(G5_THEME_PATH.'/tail.sub.php');
