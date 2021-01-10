@@ -13,15 +13,17 @@ add_stylesheet('<link rel="apple-touch-icon" sizes="167x167" href="'.G5_THEME_IM
 add_stylesheet('<link rel="apple-touch-icon" sizes="180x180" href="'.G5_IMG_URL.'/pwa-splash.png">', 0);
 add_stylesheet('<link rel="manifest" href="../../../manifest.json">', 0);
 ?>
-<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+<!--<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>-->
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 
-<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+<!--<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>-->
 
-<script src="<?=G5_URL?>/firebase-messaging.js?ver=44"></script>
+<!--<script src="--><?//=G5_URL?><!--/firebase-messaging.js?ver=44"></script>-->
 <script>
+
+    return false;
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     var firebaseConfig = {
@@ -135,6 +137,21 @@ add_stylesheet('<link rel="manifest" href="../../../manifest.json">', 0);
 
 
 </script>
+<style>
+    .main-tab{
+        width:25%;
+        display:inline-block;
+        line-height: 40px;
+        text-align: center;
+        color: #aaa;
+    }
+    .main-tab.active{
+        color:#7DB262;
+        border-bottom: 2px solid #7DB262;
+    }
+</style>
+
+
 <header id="hd">
     <?php if ((!$bo_table || $w == 's' ) && defined('_INDEX_')) { ?><h1><?php echo $config['cf_title'] ?></h1><?php } ?>
 
@@ -146,12 +163,13 @@ add_stylesheet('<link rel="manifest" href="../../../manifest.json">', 0);
 
     <section id="hd_sec">
         <div id="messages"></div>
-    	<div id="hd_wr">
-        	<div id="logo"><a href="<?php echo G5_SHOP_URL; ?>/"><img src="<?php echo G5_THEME_IMG_URL ?>/logo.png?v=1" alt="<?php echo $config['cf_title']; ?> 메인"></a></div>
+    	<div id="hd_wr" style="background-color: #7DB262">
+<!--        	<div id="logo"><a href="--><?php //echo G5_SHOP_URL; ?><!--/"><img src="--><?php //echo G5_THEME_IMG_URL ?><!--/logo.png?v=1" alt="--><?php //echo $config['cf_title']; ?><!-- 메인"></a></div>-->
+            <div id="logo"><a href="<?php echo G5_SHOP_URL; ?>/"><img src="<?php echo G5_THEME_IMG_URL ?>/m_logo.png?v=1" alt="<?php echo $config['cf_title']; ?> 메인"></a></div>
 	        <div id="hd_btn">
 	            <button type="button" id="btn_hdcate"><i class="fa fa-bars" aria-hidden="true"></i><span class="sound_only">분류</span></button>
-	            <button type="button" id="user_btn"><i class="fas fa-user"></i><span class="sound_only">사용자메뉴</span></button>
-		        <button type="button" id="sch_btn"><i class="fa fa-search" aria-hidden="true"></i><span class="sound_only">검색</span></button>
+<!--	            <button type="button" id="user_btn"><i class="fas fa-user"></i><span class="sound_only">사용자메뉴</span></button>-->
+<!--		        <button type="button" id="sch_btn"><i class="fa fa-search" aria-hidden="true"></i><span class="sound_only">검색</span></button>-->
 
 			    <form name="frmsearch1" action="<?php echo G5_SHOP_URL; ?>/search.php" onsubmit="return search_submit(this);">
 				    <aside id="hd_sch">
@@ -180,7 +198,7 @@ add_stylesheet('<link rel="manifest" href="../../../manifest.json">', 0);
 		            <?php echo outlogin('theme/shop_basic'); // 외부 로그인 ?>
 		        </div>
 		        
-		        <a href="<?php echo G5_SHOP_URL; ?>/cart.php" class="sp_cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="sound_only">장바구니</span><span class="cart-count"><?php echo get_boxcart_datas_count(); ?></span></a>
+<!--		        <a href="--><?php //echo G5_SHOP_URL; ?><!--/cart.php" class="sp_cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="sound_only">장바구니</span><span class="cart-count">--><?php //echo get_boxcart_datas_count(); ?><!--</span></a>-->
 			</div>
 	    </div>
     </section>
@@ -232,4 +250,10 @@ add_stylesheet('<link rel="manifest" href="../../../manifest.json">', 0);
 </header>
 
 <div id="container">
+    <div style="width:100%;height:40px;clear:both;display: flex; font-weight: bold">
+        <div class="main-tab active">7디톡스</div>
+        <div class="main-tab">참여하기</div>
+        <div class="main-tab">제품소개</div>
+        <div class="main-tab">게시판</div>
+    </div>
     <?php if ((!$bo_table || $w == 's' ) && !defined('_INDEX_')) { ?><h1 id="container_title"><?php echo $g5['title'] ?></h1><?php } ?>

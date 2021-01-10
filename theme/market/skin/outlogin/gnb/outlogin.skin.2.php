@@ -11,12 +11,20 @@ add_stylesheet('<link rel="stylesheet" href="'.$outlogin_skin_url.'/style.css">'
 ?>
 
 <!-- 로그인 후 아웃로그인 시작 { -->
-<section id="gn_ol_after" class="gnb_ol">
+<section id="gn_ol_after" class="gnb_ol" style="margin-top: 50px">
 	<h2>나의 회원정보</h2>
-    <span class="profile_img">
+    <span class="profile_img" style="height: 50px; margin-right: 10px">
         <?php echo get_member_profile_img($member['mb_id']); ?>
     </span>
-    <strong><?php echo $nick ?>님</strong>
+    <ul style="display: inline-block; color: white; font-weight: bold">
+        <li><?php echo $nick ?></li>
+        <li><?php echo $member['mb_email'] ?></li>
+    </ul>
+
+    <ul style="display: inline-block; color: white; font-weight: bold; margin-left: 10px">
+        <li>회원정보</li>
+        <li><a href="<?php echo G5_BBS_URL ?>/logout.php" style="color:white;">로그아웃</a></li>
+    </ul>
 </section>
 
 <script>

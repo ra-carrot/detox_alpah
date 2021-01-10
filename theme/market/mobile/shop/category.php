@@ -16,124 +16,175 @@ function get_mshop_category($ca_id, $len)
 
 $mshop_categories = get_shop_category_array(true);
 ?>
+<style type="text/css">
+    .menu_wr_top{
+        height: 150px;
+
+    }
+
+    .main_tree_menu{
+        width: 360px;
+        height: 100%;
+        background-color: yellow;
+        z-index: 10000;
+        position: relative;
+        top: 50px;
+        display: inline-block;
+        left: -210px;
+    }
+
+    .login_container{
+        width: 100%;
+        height: 130px;
+        background-color: #7DB262;
+    }
+    .tree_exit_container{
+        width: 100%;
+        height: 30px;
+        background-color: #7DB262;
+    }
+
+    .menu_container{
+        /*height: 355px;*/
+        background-color: white;
+        opacity: 0.8;
+    }
+
+    .left_menu_container{
+        width: 50%;
+        /*background-color: yellow;*/
+        height: 100%;
+        display: inline-block;
+        float: left;
+    }
+    .right_menu_container{
+        width: 50%;
+        /*background-color: #0f75ac;*/
+        height: 100%;
+        display: inline-block;
+        float: right;
+    }
+
+    .left_menu_list{
+        padding-top: 15px;
+        text-align: left;
+        padding-left: 30px;
+        /*margin-left: 30px;*/
+        /*border-bottom: 1px solid #7DB262;*/
+
+        line-height: 31px;
+
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .detox_color{
+        color: #7DB262;
+    }
+
+    .menu_line{
+        background-color: #7DB262;
+        height: 2px;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    .login_text{
+        line-height: 110px;
+        color: white;
+        font-size: 17px;
+        font-weight: bold;
+    }
+    .exit_btn{
+        float: right;
+        color: white;
+        font-size: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        cursor: pointer;
+    }
+    .inline_block{
+        display: inline-block;
+    }
+
+    .user_info_container{
+        width: 100%;
+        position: relative;
+        top: 18px;
+        float: left;
+        padding-left: 20px;
+        padding-right: 20px
+    }
+    .box {
+        width: 64px;
+        height: 64px;
+        border-radius: 70%;
+        overflow: hidden;
+        display: inline-block;
+    }
+    .profile {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background-color: white;
+    }
+
+    .user_info_ul{
+        display: inline-block;
+        margin-left: 15px;
+        color: white;
+        font-size: 15px;
+        font-weight: bold;
+        overflow: hidden;
+        line-height: 25px;
+    }
+</style>
 
 <div id="category" class="menu">
     <div class="menu_wr">
-    	<div class="menu_wr_top">
+    	<div class="menu_wr_top" style="background-color: #7DB262;">
     		<?php echo outlogin('theme/gnb'); // 외부 로그인 ?>
-			<button type="button" class="menu_close"><i class="fa fa-times" aria-hidden="true"></i><span class="sound_only">카테고리닫기</span></button>  
+			<button type="button" class="menu_close" style="background-color: #7DB262;"><i style="color: white" class="fa fa-times" aria-hidden="true"></i><span class="sound_only">카테고리닫기</span></button>
 		</div>
 
-        <?php
-        $i = 0;
-        foreach($mshop_categories as $cate1){
-            if( empty($cate1) ) continue;
 
-            $mshop_ca_row1 = $cate1['text'];
-            if($i == 0)
-                echo '<ul class="cate">'.PHP_EOL;
-        ?>
-        <li>
-            <a href="<?php echo $mshop_ca_row1['url']; ?>"><?php echo get_text($mshop_ca_row1['ca_name']); ?></a>
-            <?php
-            if( count($cate1) > 1 )
-                echo '<button class="sub_ct_toggle ct_op">'.get_text($mshop_ca_row1['ca_name']).' 하위분류 열기</button>'.PHP_EOL;
-
-            $j=0;
-            foreach($cate1 as $key=>$cate2){
-                if( empty($cate2) || $key === 'text' ) continue;
-                
-                $mshop_ca_row2 = $cate2['text'];
-                if($j == 0)
-                    echo '<ul class="sub_cate sub_cate1">'.PHP_EOL;
-            ?>
-                <li>
-                    <a href="<?php echo $mshop_ca_row2['url']; ?>"><?php echo get_text($mshop_ca_row2['ca_name']); ?></a>
-                    <?php
-                    $mshop_ca_res3 = sql_query(get_mshop_category($mshop_ca_row2['ca_id'], 6));
-                    if( count($cate2) > 1 )
-                        echo '<button type="button" class="sub_ct_toggle ct_op">'.get_text($mshop_ca_row2['ca_name']).' 하위분류 열기</button>'.PHP_EOL;
-                    
-                    $k = 0;
-                    foreach($cate2 as $cate3_key=>$cate3){
-                        if( empty($cate2) || $cate3_key === 'text' ) continue;
-                        
-                        $mshop_ca_row3 = $cate3['text'];
-                        if($k == 0)
-                            echo '<ul class="sub_cate sub_cate2">'.PHP_EOL;
-                    ?>
-                        <li>
-                            <a href="<?php echo $mshop_ca_row3['url']; ?>"><?php echo get_text($mshop_ca_row3['ca_name']); ?></a>
-                            <?php
-                            $mshop_ca_res4 = sql_query(get_mshop_category($mshop_ca_row3['ca_id'], 8));
-                            if(sql_num_rows($mshop_ca_res4))
-                                echo '<button type="button" class="sub_ct_toggle ct_op">'.get_text($mshop_ca_row3['ca_name']).' 하위분류 열기</button>'.PHP_EOL;
-
-                            for($m=0; $mshop_ca_row4=sql_fetch_array($mshop_ca_res4); $m++) {
-                                if($m == 0)
-                                    echo '<ul class="sub_cate sub_cate3">'.PHP_EOL;
-                            ?>
-                                <li>
-                                    <a href="<?php echo $mshop_ca_href.$mshop_ca_row4['ca_id']; ?>"><?php echo get_text($mshop_ca_row4['ca_name']); ?></a>
-                                    <?php
-                                    $mshop_ca_res5 = sql_query(get_mshop_category($mshop_ca_row4['ca_id'], 10));
-                                    if(sql_num_rows($mshop_ca_res5))
-                                        echo '<button type="button" class="sub_ct_toggle ct_op">'.get_text($mshop_ca_row4['ca_name']).' 하위분류 열기</button>'.PHP_EOL;
-
-                                    for($n=0; $mshop_ca_row5=sql_fetch_array($mshop_ca_res5); $n++) {
-                                        if($n == 0)
-                                            echo '<ul class="sub_cate sub_cate4">'.PHP_EOL;
-                                    ?>
-                                        <li>
-                                            <a href="<?php echo $mshop_ca_href.$mshop_ca_row5['ca_id']; ?>"><?php echo get_text($mshop_ca_row5['ca_name']); ?></a>
-                                        </li>
-                                    <?php
-                                    }
-
-                                    if($n > 0)
-                                        echo '</ul>'.PHP_EOL;
-                                    ?>
-                                </li>
-                            <?php
-                            }
-
-                            if($m > 0)
-                                echo '</ul>'.PHP_EOL;
-                            ?>
-                        </li>
-                    <?php
-                    $k++;
-                    }
-
-                    if($k > 0)
-                        echo '</ul>'.PHP_EOL;
-                    ?>
-                </li>
-            <?php
-            $j++;
-            }
-
-            if($j > 0)
-                echo '</ul>'.PHP_EOL;
-            ?>
-            </li>
-        <?php
-        $i++;
-        }   // end for
-
-        if($i > 0)
-            echo '</ul>'.PHP_EOL;
-        else
-            echo '<p>등록된 분류가 없습니다.</p>'.PHP_EOL;
-        ?>
-
-        <div id="hd_tnb">
-        	<a href="<?php echo G5_BBS_URL; ?>/faq.php">FAQ</a>
-			<a href="<?php echo G5_BBS_URL; ?>/qalist.php">1:1문의</a>
-			<a href="<?php echo G5_SHOP_URL; ?>/personalpay.php">개인결제</a>
-			<a href="<?php echo G5_SHOP_URL; ?>/couponzone.php">쿠폰존</a>
-            <!-- TODO :: 알림테스트 후 제거 -->
-            <a href="https://7detox.co.kr/detox/shop/setting_alarm.php">알림</a>
+        <div class="menu_container" style="height: 190px">
+            <div class="left_menu_container">
+                <ul class="left_menu_list">
+                    <li class="detox_color"><a style="color: #7DB262" href="<?php echo G5_SHOP_URL; ?>/">7디톡스</a></li>
+                    <li class="detox_color"><a style="color: #7DB262" href="<?php echo get_pretty_url("free")?>">게시판</a></li>
+                    <li><a href="<?php echo get_pretty_url("free")?>">자유게시판</a></li>
+                    <li>후기</li>
+                    <li>노하우</li>
+                </ul>
+            </div>
+            <div class="right_menu_container">
+                <ul class="left_menu_list">
+                    <li class="detox_color">제품소개</li>
+                    <li class="detox_color">참여하기</li>
+                    <li>알람설정</li>
+                    <li>홈트레이닝</li>
+                    <li>해독일지</li>
+                </ul>
+            </div>
+        </div>
+        <div class="menu_container" style="height: 5px;">
+            <div class="menu_line" ></div>
+        </div>
+        <div class="menu_container" style="height: 155px">
+            <div class="left_menu_container">
+                <ul class="left_menu_list">
+                    <li><a href="<?php echo get_pretty_url('content', 'company'); ?>">회사소개</a></li>
+                    <li><a href="<?php echo get_pretty_url('content', 'provision'); ?>">이용약관</a></li>
+                    <li>청소년 보호정책</li>
+                </ul>
+            </div>
+            <div class="right_menu_container">
+                <ul class="left_menu_list">
+                    <li>고객센터</li>
+                    <li><a href="<?php echo get_pretty_url('content', 'privacy'); ?>">개인정보처리방침</a></li>
+                    <li>제휴문의</li>
+                </ul>
+            </div>
         </div>
 	</div>
 </div>

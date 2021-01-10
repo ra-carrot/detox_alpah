@@ -6,9 +6,9 @@ add_stylesheet('<link rel="stylesheet" href="'.$outlogin_skin_url.'/style.css">'
 ?>
 
 <!-- 로그인 전 아웃로그인 시작 { -->
-<section id="gb_ol_before" class="gnb_ol">
+<section id="gb_ol_before" class="gnb_ol" style="line-height: 140px">
     <h2>로그인</h2>
-	<span class="ol_bf_txt">로그인하세요</span>
+    <a style="color: white; font-weight: bold" href="<?php echo G5_BBS_URL ?>/login.php"><span class="ol_bf_txt">로그인 해주세요.</span></a>
 </section>
 
 <script>
