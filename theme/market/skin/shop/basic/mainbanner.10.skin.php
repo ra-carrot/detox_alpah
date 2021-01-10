@@ -73,15 +73,15 @@ if ($i > 0) {
 <script>
 jQuery(function($){
     $('.slide-wrap').show();
-    // var slider = $('.slide-wrap').show().bxSlider({
-    //     speed:800,
-    //     pagerCustom: '#bx_pager',
-    //     auto: ($(".slide-wrap li").length > 1) ? true: false,
-    //     useCSS : true,
-    //     onSlideAfter : function(){
-    //         //slider.startAuto();
-    //     }
-    // });
+    var slider = $('.slide-wrap').show().bxSlider({
+        speed:800,
+        pagerCustom: '#bx_pager',
+        auto: ($(".slide-wrap li").length > 1) ? true: false,
+        useCSS : true,
+        onSlideAfter : function(){
+            //slider.startAuto();
+        }
+    });
 });
 </script>
 <?php
